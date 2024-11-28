@@ -1,18 +1,18 @@
-Library    SeleniumLibrary
+*** Settings ***
+Documentation     A test suite with a single test for New Tab
+...               Created By ' Robotcorder
+Library           SeleniumLibrary    timeout=10
 
 *** Variables ***
-${URL}    https://example.com
+${BROWSER}    headlesschrome
+${SLEEP}    3
 
 *** Test Cases ***
-Open Browser to Example
-    Open Browser    ${URL}    chrome
-    Title Should Be    Example Domain
-    [Teardown]    Close Browser
+New Tab test
+    Wait Until Keyword Succeeds    1 min    5 seconds    Open Browser    https://www.google.com    ${BROWSER}
+    Sleep    ${SLEEP}
+    Wait Until Keyword Succeeds    1 min    5 seconds    Wait Until Page Contains Element    //h3[@class="LC20lb MBeuO DKV0Md"]
+    Wait Until Keyword Succeeds    1 min    5 seconds    Click Element    //h3[@class="LC20lb MBeuO DKV0Md"]
+    Sleep    ${SLEEP}
 
-Verify Example Content
-    [Setup]    Open Browser to Example
-    Element Should Be Visible    xpath://h1[contains(text(), 'Example Domain')]
-    [Teardown]    Close Browser
-
-Verify Example Content1    
-    Log To Console    Example Domain
+    Close Browser
