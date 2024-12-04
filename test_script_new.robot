@@ -1,18 +1,14 @@
-Library    SeleniumLibrary
+*** Settings ***
+Documentation     A test suite with a single test for VVDN_SFIT_JENKINS_BUILD_STATUS - Chat
+...               Created by hats' Robotcorder
+Library           SeleniumLibrary    timeout=10
 
 *** Variables ***
-${URL}    https://example.com
+${BROWSER}   headlesschrome
+${SLEEP}    3
 
 *** Test Cases ***
-Open Browser to Example
-    Open Browser    ${URL}    chrome
-    Title Should Be    Example Domain
-    [Teardown]    Close Browser
+VVDN_SFIT_JENKINS_BUILD_STATUS - Chat test
+    Open Browser    https://mail.google.com/mail/u/0/?tab=rm&ogbl#chat/space/AAAAEdczv58    ${BROWSER}
 
-Verify Example Content
-    [Setup]    Open Browser to Example
-    Element Should Be Visible    xpath://h1[contains(text(), 'Example Domain')]
-    [Teardown]    Close Browser
-
-Verify Example Content1    
-    Log To Console    Example Domain
+    Close Browser
