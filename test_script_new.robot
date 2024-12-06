@@ -15,10 +15,10 @@ New Tab test
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --disable-gpu
     Open Browser    chrome://newtab/    ${BROWSER}    options=${options}
-    Click Element    //div[@id="tw-sl"]
-    Input Text    //input[@id="sl_list-search-box"]    eng
-    Click Element    xpath=(//div)[2835]
-    Input Text    //textarea[@id="tw-source-text-ta"]    i don't understand
+    Click Element    //div[@id="tw-sl"]    options=${options}
+    Input Text    //input[@id="sl_list-search-box"]    eng    options=${options}
+    Click Element    xpath=(//div)[2835]    options=${options}
+    Input Text    //textarea[@id="tw-source-text-ta"]    i don't understand    options=${options}
     Click Element    //h3[@class="LC20lb MBeuO DKV0Md"]
     Click Element    //div[@class="lv7K9c"]
 
