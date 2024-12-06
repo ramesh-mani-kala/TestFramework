@@ -1,19 +1,25 @@
 *** Settings ***
-Library    SeleniumLibrary
+Documentation     A test suite with a single test for New Tab
+...               Created by hats' Robotcorder
+Library           Selenium2Library    timeout=10
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    https://www.google.com/
+${SLEEP}    3
 
 *** Test Cases ***
-Open Browser in Headless Mode
-    ${chrome_options}=    Evaluate    sys.modules["selenium.webdriver"].ChromeOptions()    sys, selenium.webdriver
-    Call Method    ${chrome_options}    add_argument    --headless
-    Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
-    Call Method    ${chrome_options}    add_argument    --no-sandbox
+New Tab test
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --disable-gpu
+    Open Browser    chrome://newtab/    ${BROWSER}    options=${options}
+    Click Element    //div[@id="tw-sl"]
+    Input Text    //input[@id="sl_list-search-box"]    eng
+    Click Element    xpath=(//div)[2835]
+    Input Text    //textarea[@id="tw-source-text-ta"]    i don't understand
+    Click Element    //h3[@class="LC20lb MBeuO DKV0Md"]
+    Click Element    //div[@class="lv7K9c"]
 
-    Wait Until Keyword Succeeds    1 min    5 seconds    Open Browser    ${URL}    ${BROWSER}    options=${chrome_options}
-
-    [Teardown]    Close Browser
-
+    Close Browser
