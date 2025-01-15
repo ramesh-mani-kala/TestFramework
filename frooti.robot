@@ -1,5 +1,5 @@
 
-*** Settings ***
+*** Settings *** 
 Library    OperatingSystem
 Library    Collections
 
