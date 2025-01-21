@@ -16,4 +16,3 @@ Library           SeleniumLibrary    timeout=10
 #     Call Method    ${options}    add_argument    --disable-gpu
 #     Open Browser    about:blank    ${BROWSER}    options=${options}
  Close Browser
-hh
