@@ -15,4 +15,3 @@ Library           SeleniumLibrary    timeout=10
 #     Call Method    ${options}    add_argument    --disable-dev-shm-usage
 #     Call Method    ${options}    add_argument    --disable-gpu
 #     Open Browser    about:blank    ${BROWSER}    options=${options}
-      
