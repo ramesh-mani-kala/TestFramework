@@ -3,9 +3,9 @@ Documentation     A test suite with a single test for New Tab
 Library           SeleniumLibrary    timeout=10
 
 *** Variables ***
-${BROWSER}    chrome
-${SLEEP}      10
-${USER_DATA_DIR}    /tmp/selenium_chrome_profile
+${BROWSER}        chrome
+${SLEEP}          10
+${USER_DATA_DIR}  /tmp/selenium_chrome_profile
 
 *** Test Cases ***
 New Tab test
