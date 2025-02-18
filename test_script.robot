@@ -8,11 +8,10 @@ ${BROWSER}    chrome
 ${SLEEP}      10
 
 *** Test Cases ***
-SmartFitAutomation test
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --no-sandbox
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --disable-gpu
-    Open Browser    http://172.24.131.223/code-editor    ${BROWSER}    options=${options}
+    Open Browser    https://chromewebstore.google.com/detail/robotcorder/ifiilbfgcemdapeibjfohnfpfmfblmpd?hl=en-GB&utm_source=ext_sidebar    ${BROWSER}    options=${options}
     Close Browser
