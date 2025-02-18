@@ -5,6 +5,7 @@ Library           SeleniumLibrary    timeout=10
 *** Variables ***
 ${BROWSER}    chrome
 ${SLEEP}      10
+${USER_DATA_DIR}    /tmp/selenium_chrome_profile
 
 *** Test Cases ***
 New Tab test
@@ -12,6 +13,7 @@ New Tab test
     Call Method    ${options}    add_argument    --no-sandbox
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --user-data-dir=${USER_DATA_DIR}
     Open Browser    about:blank    ${BROWSER}    options=${options}
     Sleep    ${SLEEP}    # Adding sleep to wait for the page to load
     Wait Until Element Is Enabled    xpath=//div[@title="User"]    timeout=10
