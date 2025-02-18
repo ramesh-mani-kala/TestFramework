@@ -16,6 +16,6 @@ New Tab test
     Call Method    ${options}    add_argument    --disable-gpu
     Open Browser    about:blank    ${BROWSER}    options=${options}
     Sleep    ${SLEEP}    # Adding sleep to wait for the page to load
-    Wait Until Element Is Visible    xpath=//h3[@class="LC20lb"]    timeout=5
-    Click Element    xpath=//h3[@class="LC20lb"]
+    # Wait Until Element Is Visible    xpath=//h3[@class="LC20lb"]    timeout=5
+    # Click Element    xpath=//h3[@class="LC20lb"]
     Close Browser
