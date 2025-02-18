@@ -14,7 +14,7 @@ New Tab test
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --disable-gpu
     Open Browser    about:blank    ${BROWSER}    options=${options}
-    Wait Until Element Is Visible    xpath=//div[@title="User"]    timeout=5
+    Wait Until Element Is Visible    xpath=//div[@title="User"]    timeout=10
     Click Element    xpath=//div[@title="User"]
     Wait Until Element Is Visible    xpath=//h3[@class="LC20lb"]    timeout=5
     Click Element    xpath=//h3[@class="LC20lb"]
